@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GREENY WHITE CALCULATOR</title>
+<style>
+*{
+margin: 0;
+padding: 0;
+box-sizing:border-box;
+outline: none;
+font-family: sans-serif;
+font-weight: 400;
+background-color: rgb(85, 109, 35);
+color:aquamarine;
+
+}
+
+.container{
+height: 100vh;
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: rgb(248, 246, 240);
+box-shadow: 20px 10px 15px rgba(33, 38, 34, 0.208);
+border-radius: 20px;
+margin: 20px;
+padding: 20px;
+}
+
+.calci{
+    background-color: rgba(210, 210, 195, 0.953);
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: inset -15px -15px 10px, rgba(100,100,100,0.5),
+    inset -13px 13px 20px rgba(14, 15, 14, 0.4);
+    display:grid;
+    grid-template-columns: repeat(4,88px);
+    width: 380px;
+
+
+}
+
+input{
+    background-color:lightyellow;
+    grid-column: span 4;
+    height: 68px;
+    width: 356px;
+    border-radius: 32px;
+    box-shadow: inset -20px -25px 10px, rgba(0,0,0,0.3);
+    text-align: end;
+    font-size: 35px;
+    padding: 22px;
+    border: none;
+    color:rgb(8, 4, 1);
+    margin: 40px 0 30px 0;
+}
+
+
+button{
+    box-shadow: 10px 15px 10px,darkolivegreen;
+    font-size: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    height: 50px;
+    width: 80px;
+    color: white;
+    margin: 10px;
+}
+
+h1{
+    font-family: Arial;
+    font-size: 50px;
+    color: rgb(255,255,255);
+    text-shadow: 0 2px 3px rgb(28, 190, 87);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+}
+
+.equal{
+    box-shadow: inset 10px 5px 10px, rgba(19, 18, 18, 0.5),
+    10px 10px 15px rgba(0,0,0,0.4);
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    height: 50px;
+    width: 160px;
+    color:white;
+    margin: 10px;
+}
+</style>
+  </head>
+  <h1>GREENY WHITE CALCULATOR</h1>
+  <body>
+    <div class="container">
+      <div class="calci">
+        <input type="text" id="inputext" placeholder="0" />
+        <button onclick="clr()">CLR</button>
+        <button onclick="del()">DEL</button>
+        <button onclick="calculate('%')">%</button>
+        <button onclick="calculate('/')">/</button>
+        <button onclick="calculate(7)">7</button>
+        <button onclick="calculate(8)">8</button>
+        <button onclick="calculate(9)">9</button>
+        <button onclick="calculate('*')">*</button>
+        <button onclick="calculate(4)">4</button>
+        <button onclick="calculate(5)">5</button>
+        <button onclick="calculate(6)">6</button>
+        <button onclick="calculate('-')">-</button>
+        <button onclick="calculate(1)">1</button>
+        <button onclick="calculate(2)">2</button>
+        <button onclick="calculate(3)">3</button>
+        <button onclick="calculate('+')">+</button>
+        <button onclick="calculate('.')">.</button>
+        <button onclick="calculate(0)">0</button>
+        <button class="equal" onclick="Result()">=</button>
+      </div>
+    </div>
+
+<script>
+let result=document.getElementById("inputext");
+
+let calculate=(number)=>{
+    result.value+=number;
+}
+
+let Result=()=>{
+    try{
+        result.value=eval(result.value)
+    }
+
+    catch(err){
+        alert("Enter A Valid Input!")
+    }
+}
+
+function clr(){
+    result.value= " "}
+
+
+function del(){
+    result.value=result.value.slice(0,-1);
+}
+
+</script>
+  </body>
+</html>
